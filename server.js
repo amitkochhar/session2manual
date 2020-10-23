@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const path = require('path');
 const http = require('http');
 const app = express();
@@ -6,7 +7,11 @@ const app = express();
 // API file for interacting with MongoDB
 //const api = require('./server/routes/api');
 
-// React DIST output folder
+// Parsers
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+
+// Angular DIST output folder
 app.use(express.static(path.join(__dirname, 'build')));
 
 // API location
@@ -17,21 +22,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'build/index.html'));
 })
 
-app.get('/products',(req,res) => {
-    res.json(
-        [
-            {
-                "id":1,
-                "name:":"Product A",
-                "Price":78
-            },
-            {
-                "id":1,
-                "name:":"Product N",
-                "Price":99
-            }
-        ]
-    )
+app.get('/product',(req,res) => {
+    res.send('hiii')
 })
 
 //Set Port
