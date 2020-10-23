@@ -1,0 +1,20 @@
+import React from 'react';
+//var React = require('react'); es5 style
+import Header from './Header.js'
+import Footer from './Footer.js';
+//functional component
+const App = () => {
+    return(
+         //you return more than one element, you have wrap in parent element such as div, header, footer, nav tags (first option). 
+         //Better option is to use React.Fragment tag and it will not show html full of div tags. It is a react wrapper element
+         <React.Fragment>
+             <Header/>
+             <h1>My React App H1</h1>
+             <h2>My React App H2</h2>
+             <Footer year="2020" month="September"/>
+        </React.Fragment>
+            
+    )
+}
+
+export default App;

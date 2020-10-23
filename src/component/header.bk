@@ -1,0 +1,63 @@
+import React, { Fragment, Component } from 'react';
+import { render } from 'react-dom';
+import './Header.css'
+
+//class component
+class Header extends Component {
+
+    constructor() {
+        super();
+
+        this.state = {
+            title: "Edureka September Course",
+            keyword: "User text goes here"
+        }
+
+    }
+
+    render() {
+
+        //Option 1: object that has styles defined in class component
+        const mystyle = {
+            header: {
+                backgroundColor: 'tomato'
+            },
+            logo: {
+                textAlign: 'center',
+                fontColor: '#fff',
+                fontSize: '30px'
+            }
+        }
+
+        return (
+            <Fragment>
+                //Style from React object within class component
+                <header style={mystyle.header}>
+                    <div style={mystyle.logo}>{this.state.title}</div>
+                    <center>
+                        //inline style JSX way
+                        <div style={{color:'#fff'}}>{this.state.keyword}</div>
+                    </center>
+                    <hr />
+                </header>
+            </Fragment>
+        )
+    }
+
+}
+
+//functional component
+// const Header = () =>{
+// return(
+//     <Fragment>
+//         <center>
+//             <h1>Edureka</h1>
+//          </center>
+//         <hr/>
+//      </Fragment>
+
+// )
+
+// }
+
+export default Header;
